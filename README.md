@@ -1,1 +1,1 @@
-git submodule add https://github.com/FelipeJurisJacques/epwa.git .vscode
+git submodule add https://github.com/FelipeJurisJacques/epwa.git engine
