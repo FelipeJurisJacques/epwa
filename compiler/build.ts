@@ -49,25 +49,27 @@ function readPath(path: string): Array<string> {
     }
 }
 
-if (!fs.existsSync(`${base}/public/assets/abouts/`)) {
-    fs.mkdirSync(`${base}/public/assets/abouts/`)
-}
-const manifest = fs.existsSync(
-    `${base}/public/abouts/manifest.json`
-) ? JSON.parse(fs.readFileSync(
-    `${base}/public/abouts/manifest.json`,
-    'utf-8'
-)) : {}
+const paths = {}
 const assets = fs.readdirSync(`${base}/public/assets/`)
 for (let asset of assets) {
     const path = `${base}/public/assets/${asset}`
     if (fs.statSync(path).isDirectory()) {
-        manifest[asset] = readPath(path)
+        const values = readPath(path)
+        if (values.length) {
+            paths[asset] = values
+        }
     }
 }
 try {
+    const manifest = fs.existsSync(
+        `${base}/public/manifest.json`
+    ) ? JSON.parse(fs.readFileSync(
+        `${base}/public/manifest.json`,
+        'utf-8'
+    )) : {}
+    manifest.assets = paths
     fs.writeFileSync(
-        `${base}/public/assets/abouts/manifest.json`,
+        `${base}/public/manifest.json`,
         JSON.stringify(manifest, null, 2),
         'utf8'
     )

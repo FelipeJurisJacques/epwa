@@ -1,18 +1,18 @@
 {
     "compilerOptions": {
         "lib": [
-            "ESNext",
-            "dom"
+            "dom",
+            "ESNext"
         ], // Bibliotecas padrão
         "strict": true,
         "module": "ESNext", // Usa módulos ES
         "target": "ESNext", // Usa a versão mais recente do ECMAScript
-        "outDir": "./dist",
         "skipLibCheck": true,
         "esModuleInterop": true,
+        "rootDir": "./frontend/",
         "strictNullChecks": true,
         "moduleResolution": "node",
-        "rootDir": "./source/application",
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./frontend/assets/application"
     }
 }
