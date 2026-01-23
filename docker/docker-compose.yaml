@@ -21,8 +21,8 @@ services:
       - ../../source/:/workspace/frontend/source/
       - ../helpers/:/workspace/frontend/engine/helpers/
       - ../compiler/:/workspace/backend/engine/compiler/
+      - ../../public/assets/:/workspace/frontend/assets/
       - ./typescript/package.json:/workspace/package.json
       - ../abstracts/:/workspace/frontend/engine/abstracts/
       - ./typescript/tsconfig.json:/workspace/tsconfig.json
       - ./typescript/rollup.config.js:/workspace/rollup.config.js
-      - ../../public/assets/application/:/workspace/frontend/assets/application/

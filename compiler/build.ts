@@ -36,7 +36,7 @@ function readPath(path: string): Array<string> {
             }
             return result
         } else {
-            path = path.substring(path.indexOf('/public/') + 8)
+            path = path.substring(path.indexOf('/frontend/') + 10)
             // return [
             //     `  ${path.split('.').shift()?.replaceAll('/', '_').replace(/[^a-zA-Z0-9_]/g, '').toUpperCase()}: '/${path}',\r\n`
             // ]
@@ -50,9 +50,9 @@ function readPath(path: string): Array<string> {
 }
 
 const paths = {}
-const assets = fs.readdirSync(`${base}/public/assets/`)
+const assets = fs.readdirSync(`${base}/frontend/assets/`)
 for (let asset of assets) {
-    const path = `${base}/public/assets/${asset}`
+    const path = `${base}/frontend/assets/${asset}`
     if (fs.statSync(path).isDirectory()) {
         const values = readPath(path)
         if (values.length) {
@@ -62,14 +62,14 @@ for (let asset of assets) {
 }
 try {
     const manifest = fs.existsSync(
-        `${base}/public/manifest.json`
+        `${base}/frontend/assets/manifest.json`
     ) ? JSON.parse(fs.readFileSync(
-        `${base}/public/manifest.json`,
+        `${base}/frontend/assets/manifest.json`,
         'utf-8'
     )) : {}
     manifest.assets = paths
     fs.writeFileSync(
-        `${base}/public/manifest.json`,
+        `${base}/frontend/assets/manifest.json`,
         JSON.stringify(manifest, null, 2),
         'utf8'
     )
