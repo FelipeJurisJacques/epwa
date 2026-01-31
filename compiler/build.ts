@@ -1,3 +1,4 @@
+// @ts-nocheck
 import fs from 'fs'
 import ffmpeg from 'fluent-ffmpeg'
 
@@ -50,9 +51,9 @@ function readPath(path: string): Array<string> {
 }
 
 const paths = {}
-const assets = fs.readdirSync(`${base}/frontend/assets/`)
+const assets = fs.readdirSync(`${base}/assets/`)
 for (let asset of assets) {
-    const path = `${base}/frontend/assets/${asset}`
+    const path = `${base}/assets/${asset}`
     if (fs.statSync(path).isDirectory()) {
         const values = readPath(path)
         if (values.length) {
@@ -62,18 +63,18 @@ for (let asset of assets) {
 }
 try {
     const manifest = fs.existsSync(
-        `${base}/frontend/assets/manifest.json`
+        `${base}/assets/manifest.json`
     ) ? JSON.parse(fs.readFileSync(
-        `${base}/frontend/assets/manifest.json`,
+        `${base}/assets/manifest.json`,
         'utf-8'
     )) : {}
     manifest.assets = paths
     fs.writeFileSync(
-        `${base}/frontend/assets/manifest.json`,
+        `${base}/assets/manifest.json`,
         JSON.stringify(manifest, null, 2),
         'utf8'
     )
-    console.log('Enumerador de assets construido')
+    console.log('Assets construido no manifesto')
 } catch (error) {
-    console.error('Erro ao escrever o enumerador de assets:', error)
+    console.error('Erro ao escrever no manifesto:', error)
 }

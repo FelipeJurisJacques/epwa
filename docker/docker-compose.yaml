@@ -15,14 +15,14 @@ services:
       - 9005:9005
     build: ./typescript/
     working_dir: /workspace/
-    container_name: engine_progressive_web_application_typescript_container
     volumes:
       - ../../data/:/workspace/
-      - ../../source/:/workspace/frontend/source/
-      - ../helpers/:/workspace/frontend/engine/helpers/
-      - ../compiler/:/workspace/backend/engine/compiler/
-      - ../../public/assets/:/workspace/frontend/assets/
+      - ../../source/:/workspace/source/
+      - ../helpers/:/workspace/engine/helpers/
+      - ../../public/assets/:/workspace/assets/
+      - ../compiler/:/workspace/engine/compiler/
+      - ../abstracts/:/workspace/engine/abstracts/
       - ./typescript/package.json:/workspace/package.json
-      - ../abstracts/:/workspace/frontend/engine/abstracts/
       - ./typescript/tsconfig.json:/workspace/tsconfig.json
       - ./typescript/rollup.config.js:/workspace/rollup.config.js
+    container_name: engine_progressive_web_application_typescript_container

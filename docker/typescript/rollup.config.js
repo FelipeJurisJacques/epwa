@@ -14,7 +14,7 @@ export default {
   output: {
     format: 'es',
     sourcemap: false,
-    dir: 'frontend/assets/application/',
+    dir: 'assets/application/',
     entryFileNames: (chunkInfo) => {
       if (chunkInfo.name === 'service-worker') {
         return 'service-worker.js'
@@ -24,7 +24,7 @@ export default {
     },
   },
   input: {
-    'index': 'frontend/source/application/index.ts',
-    'service-worker': 'frontend/source/application/service-worker.ts',
+    'index': 'source/application/index.ts',
+    'service-worker': 'source/application/service-worker.ts',
   },
 }
