@@ -37,12 +37,11 @@ function readPath(path: string): Array<string> {
             }
             return result
         } else {
-            path = path.substring(path.indexOf('/frontend/') + 10)
             // return [
             //     `  ${path.split('.').shift()?.replaceAll('/', '_').replace(/[^a-zA-Z0-9_]/g, '').toUpperCase()}: '/${path}',\r\n`
             // ]
             return [
-                `/${path}`
+                path.substring(10)
             ]
         }
     } else {
