@@ -4,7 +4,7 @@ Esse projeto é uma engine para criação de Progressive Web Applications (PWA).
 - Compilar typescript para java script;
 - Reduzir os módulos para poucos arquivos atravéz do rollup;
 - Mapear arquivos estáticos no JSON do manifesto;
-- Gerar imagens do primeir frame de vídeos;
+- Gerar imagens do primeiro frame de vídeos;
 
 ## INSTALAÇÃO
 git submodule add https://github.com/FelipeJurisJacques/epwa.git engine
