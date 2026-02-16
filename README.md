@@ -5,6 +5,7 @@ Esse projeto é uma engine para criação de Progressive Web Applications (PWA).
 - Reduzir os módulos para poucos arquivos atravéz do rollup;
 - Mapear arquivos estáticos no JSON do manifesto;
 - Gerar imagens do primeiro frame de vídeos;
+- Fornecer o aplicativo em localhost;
 
 ## INSTALAÇÃO
 git submodule add https://github.com/FelipeJurisJacques/epwa.git engine
