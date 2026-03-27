@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "EXECUTAR",
+            "request": "launch",
+            "type": "node-terminal",
+            "command": "docker compose -f ./docker/docker-compose.yaml up"
+        },
+        {
+            "name": "TERMINAL",
+            "request": "launch",
+            "type": "node-terminal",
+            "command": "docker exec -it engine_progressive_web_application_node_container bash"
+        },
+        {
+            "name": "COMPILAR",
+            "request": "launch",
+            "type": "node-terminal",
+            "command": "docker exec -it engine_progressive_web_application_node_container cd src && npm run build"
+        }
+    ]
+}

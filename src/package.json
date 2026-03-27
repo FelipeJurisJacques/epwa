@@ -1,0 +1,18 @@
+{
+  "name": "progressive-web-application-engine",
+  "version": "1.0.0",
+  "main": "./dist/browser/index.js",
+  "types": "./dist/browser/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/browser/index.d.ts",
+      "import": "./dist/browser/index.js",
+      "require": "./dist/browser/index.js"
+    },
+    "./node": {
+      "types": "./dist/node/manifest-generator.d.ts",
+      "import": "./dist/node/manifest-generator.js",
+      "require": "./dist/node/manifest-generator.js"
+    }
+  }
+}

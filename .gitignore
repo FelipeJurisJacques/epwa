@@ -1,4 +1,3 @@
 **.log
-**/python/*.py
 **/node_modules/**
 **/package-lock.json
