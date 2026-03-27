@@ -1,4 +1,0 @@
-# TTS
-# Nuitka
-# TTS[all]
-# piper-tts
