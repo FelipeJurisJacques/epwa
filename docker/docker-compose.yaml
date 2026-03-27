@@ -18,10 +18,13 @@ services:
     volumes:
       - ../../data/:/workspace/
       - ../../source/:/workspace/source/
+      - ../utils/:/workspace/engine/utils/
+      - ../events/:/workspace/engine/events/
       - ../helpers/:/workspace/engine/helpers/
       - ../../public/assets/:/workspace/assets/
       - ../compiler/:/workspace/engine/compiler/
       - ../abstracts/:/workspace/engine/abstracts/
+      - ../enumerators/:/workspace/engine/enumerators/
       - ./typescript/package.json:/workspace/package.json
       - ./typescript/tsconfig.json:/workspace/tsconfig.json
       - ./typescript/rollup.config.js:/workspace/rollup.config.js
