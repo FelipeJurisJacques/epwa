@@ -1,6 +1,16 @@
 {
   "name": "progressive-web-application-engine",
   "version": "1.0.0",
+  "dependencies": {
+    "typescript": "^6.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "build": "ts-node build.ts"
+  },
   "main": "./dist/browser/index.js",
   "types": "./dist/browser/index.d.ts",
   "exports": {

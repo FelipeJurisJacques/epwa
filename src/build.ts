@@ -2,7 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { execSync } from 'child_process';
 
-const SRC_PATH = path.join(__dirname, '../src');
+const SRC_PATH = __dirname;
+const BROWSER_PATH = path.join(SRC_PATH, 'browser');
 const INDEX_PATH = path.join(SRC_PATH, 'index.ts');
 
 function generateBarrel() {
@@ -10,17 +11,18 @@ function generateBarrel() {
 
     // Função recursiva para achar todos os arquivos .ts
     const getAllFiles = (dir: string): string[] => {
+        if (!fs.existsSync(dir)) return [];
         return fs.readdirSync(dir).flatMap(file => {
             const res = path.resolve(dir, file);
             return fs.statSync(res).isDirectory() ? getAllFiles(res) : res;
         });
     };
 
-    const files = getAllFiles(SRC_PATH)
+    const files = getAllFiles(BROWSER_PATH)
         .filter(f => f.endsWith('.ts') && !f.endsWith('index.ts'))
         .map(f => {
-            // Transforma o caminho absoluto em relativo ao index.ts
-            let relative = path.relative(SRC_PATH, f).replace(/\\/g, '/').replace('.ts', '');
+            // Transforma o caminho absoluto em relativo ao SRC_PATH para exportar com o prefixo 'browser/'
+            let relative = path.relative(SRC_PATH, f).replace(/\\/g, '/').replace(/\.ts$/, '');
             return `export * from './${relative}';`;
         });
 
@@ -30,10 +32,6 @@ function generateBarrel() {
 
 try {
     generateBarrel();
-    console.log('--- Iniciando Compilação TypeScript (tsc) ---');
-    // Executa o comando tsc original
-    execSync('npx tsc', { stdio: 'inherit' });
-    console.log('--- Build finalizado! ---');
 } catch (error) {
     console.error('Erro durante o build:', error);
     process.exit(1);

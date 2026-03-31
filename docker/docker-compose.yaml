@@ -21,5 +21,4 @@ services:
       - ../src/package.json:/workspace/package.json
       - ../src/tsconfig.json:/workspace/tsconfig.json
       - ../data/node_modules/:/workspace/node_modules/
-      - ../data/package-lock.json:/workspace/package-lock.json
     container_name: engine_progressive_web_application_node_container
